@@ -318,6 +318,85 @@
       z-index: 1;
     }
 
+    .org-link {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(126,184,247,0.3);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .org-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── ABOUT ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1.4rem;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    .about-orgs {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .org-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .org-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .org-item {
+      background: var(--bg);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: background 0.2s;
+    }
+
+    .org-item:hover { background: var(--surface); }
+
+    .org-abbr {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .org-full {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-orgs { position: static; }
+    }
+
     /* ── EXPERIENCE ── */
     .exp-list { display: flex; flex-direction: column; gap: 0; }
 
@@ -708,8 +787,10 @@
 <nav>
   <div class="nav-logo">yucely.com</div>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
+    <li><a href="#courses">Courses</a></li>
     <li><a href="#publications">Research</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -752,6 +833,52 @@
 
 <div class="full-divider"></div>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">00</span>
+    <h2>About Me</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="about-inner">
+    <div class="about-text">
+      <p>
+        Hello, I'm Mayra Yucely Beb Caal from Guatemala. I have a Ph.D. in control and automation from Bourgogne Franche-Comté University (BAC+8). With a background in mechatronic engineering and a Baccalaureatus in Scientiis from Universidad del Valle de Guatemala, I hold an International Master's degree in mechatronic and micro-mechatronic systems from esteemed institutions like Nile University (Egypt), University of Oviedo (Spain), and École Nationale Supérieure de Mécanique et des Microtechniques (France).
+      </p>
+      <p>
+        I have experience in robotics, computer vision, research, mechanical maintenance, and microscopy. I take pride in my active membership and voluntary contributions to professional organizations such as IEEE, OWSD, SPIE, and OSA.
+      </p>
+      <p>
+        I am passionate about pushing the boundaries of technology and making a positive impact in the field of robotics, computer vision, control and automation. Feel free to connect with me to discuss opportunities and collaborate on exciting projects!
+      </p>
+    </div>
+    <div class="about-orgs">
+      <div class="org-label">Member & Volunteer</div>
+      <div class="org-list">
+        <div class="org-item">
+          <span class="org-abbr">IEEE</span>
+          <span class="org-full">Institute of Electrical and Electronics Engineers</span>
+        </div>
+        <div class="org-item">
+          <span class="org-abbr">OWSD</span>
+          <span class="org-full">Organization for Women in Science for the Developing World</span>
+        </div>
+        <div class="org-item">
+          <span class="org-abbr">SPIE</span>
+          <span class="org-full">Society of Photo-Optical Instrumentation Engineers</span>
+        </div>
+        <div class="org-item">
+          <span class="org-abbr">OSA</span>
+          <span class="org-full">The Optical Society</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-header">
@@ -769,7 +896,7 @@
       </div>
       <div class="exp-content">
         <h3>Research & Development — Mechatronics/Robotics</h3>
-        <div class="org">HyprView</div>
+        <div class="org"><a href="https://www.hyprview.com/" target="_blank" class="org-link">HyprView ↗</a></div>
         <ul>
           <li>Implementation of deep learning models to automate imaging setups, including autofocus systems and image processing workflows.</li>
           <li>Supporting early cancer detection applications through robust and reproducible imaging automation.</li>
@@ -784,7 +911,7 @@
       </div>
       <div class="exp-content">
         <h3>Researcher — Micro & Nano-Robotics Team</h3>
-        <div class="org">Institut FEMTO-ST</div>
+        <div class="org"><a href="https://www.femto-st.fr" target="_blank" class="org-link">Institut FEMTO-ST ↗</a></div>
         <ul>
           <li>Developed and validated a 3D reconstruction methodology using SEM images, enhancing accuracy with optimization algorithms.</li>
           <li>Controlled a nanopositioning robot for sample manipulation and automated image acquisition with SEM.</li>
@@ -800,7 +927,7 @@
       </div>
       <div class="exp-content">
         <h3>Lab Instructor — 2D Computer Vision</h3>
-        <div class="org">University of Franche-Comté (Master's level)</div>
+        <div class="org"><a href="https://www.univ-fcomte.fr" target="_blank" class="org-link">University of Franche-Comté (Master's level) ↗</a></div>
         <ul>
           <li>Conducted practical laboratory sessions teaching OpenCV in Python.</li>
           <li>Led students through object detection and measurement projects.</li>
@@ -815,7 +942,7 @@
       </div>
       <div class="exp-content">
         <h3>Trainee / Master Thesis — Control & Monitoring</h3>
-        <div class="org">IKERLAN</div>
+        <div class="org"><a href="https://www.ikerlan.es/" target="_blank" class="org-link">IKERLAN ↗</a></div>
         <ul>
           <li>Acoustic emission (AE) analysis for bearing condition monitoring and signal analysis for detecting damage in bearings.</li>
         </ul>
@@ -829,7 +956,7 @@
       </div>
       <div class="exp-content">
         <h3>Maintenance Manager</h3>
-        <div class="org">Mayaprin & Luces del Norte S.A.</div>
+        <div class="org"><a href="https://mayaprin.com/" target="_blank" class="org-link">Mayaprin & Luces del Norte S.A. ↗</a></div>
         <ul>
           <li>Established and led the maintenance department, implementing preventive and corrective maintenance across all equipment.</li>
           <li>Supervised a team of 10 technicians in electrical, mechanical, welding, and machining tasks.</li>
@@ -844,7 +971,7 @@
       </div>
       <div class="exp-content">
         <h3>Teacher Assistant</h3>
-        <div class="org">University of the Valley of Guatemala</div>
+        <div class="org"><a href="https://www.uvg.edu.gt" target="_blank" class="org-link">University of the Valley of Guatemala ↗</a></div>
         <ul>
           <li>Electronic Instrumentation, Statistical Models, Research Techniques Workshop, Entrepreneurship and Business Workshop.</li>
         </ul>
@@ -867,7 +994,7 @@
   <div class="edu-grid">
     <div class="edu-card">
       <div class="edu-degree">PhD in Automation & Control</div>
-      <div class="edu-uni">Université Bourgogne Franche-Comté</div>
+      <div class="edu-uni"><a href="https://www.ubfc.fr" target="_blank" class="org-link">Université Bourgogne Franche-Comté ↗</a></div>
       <div class="edu-meta">
         <span>2021 – 2024</span>
         <span>🇫🇷 France</span>
@@ -876,23 +1003,64 @@
 
     <div class="edu-card">
       <div class="edu-degree">Joint Master — Mechatronic Engineering EU4M</div>
-      <div class="edu-uni">ENSMM · Nile University · University of Oviedo</div>
+      <div class="edu-uni">
+        <a href="https://www.ens2m.fr" target="_blank" class="org-link">ENSMM ↗</a> ·
+        <a href="https://www.nu.edu.eg" target="_blank" class="org-link">Nile University ↗</a> ·
+        <a href="https://www.uniovi.es" target="_blank" class="org-link">University of Oviedo ↗</a>
+      </div>
       <div class="edu-meta">
         <span>2018 – 2020</span>
         <span>🇫🇷🇪🇬🇪🇸</span>
       </div>
-      <div class="edu-gpa">GPA 9.23 / 10</div>
+      <div class="edu-gpa">ENSMM GPA 9.23/10 · Oviedo GPA 9.35/10 · Nile 3.85/4</div>
     </div>
 
     <div class="edu-card">
       <div class="edu-degree">B.S. Mechatronics Engineering</div>
-      <div class="edu-uni">University of the Valley of Guatemala</div>
+      <div class="edu-uni"><a href="https://www.uvg.edu.gt" target="_blank" class="org-link">University of the Valley of Guatemala ↗</a></div>
       <div class="edu-meta">
         <span>2012 – 2016</span>
         <span>🇬🇹 Guatemala</span>
       </div>
-      <div class="edu-gpa">GPA 85 / 100</div>
+      <div class="edu-gpa">GPA 84 / 100 · ENACTUS · IEEE · Asoc. Ing. Mecatrónica</div>
     </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>Courses & Training</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <span class="pub-type journal">Summer School</span>
+      <div>
+        <div class="pub-title">Robotics Summer School</div>
+        <div class="pub-details">
+          <a href="https://www.ethz.ch" target="_blank" class="org-link">ETH Zürich ↗</a> · Jul 2021 · Switzerland<br>
+          Full week with lectures (6h), tutorials (7.5h) and hands-on work on robotic platforms (23h+). Focus: state estimation, trajectory optimization, localization & mapping, path planning, camera modeling and geometry.
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-type conference">Intensive Course</span>
+      <div>
+        <div class="pub-title">Micro & Nano Technologies — HIM Course</div>
+        <div class="pub-details">
+          <a href="https://www.epfl.ch" target="_blank" class="org-link">EPFL ↗</a> · Jun 2021 · Switzerland<br>
+          Scanning probe fabrication, additive manufacturing, electro-optical microcircuits, micro-nano-robotics, low-noise image sensors, quantum computing, biosensors, and photonics.
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -901,7 +1069,7 @@
 <!-- PUBLICATIONS -->
 <section id="publications">
   <div class="section-header">
-    <span class="section-num">03</span>
+    <span class="section-num">04</span>
     <h2>Publications & Research</h2>
     <div class="section-line"></div>
   </div>
@@ -993,12 +1161,17 @@
 <!-- AWARDS -->
 <section id="awards">
   <div class="section-header">
-    <span class="section-num">04</span>
+    <span class="section-num">05</span>
     <h2>Awards & Scholarships</h2>
     <div class="section-line"></div>
   </div>
 
   <div class="awards-grid">
+    <div class="award-card">
+      <div class="award-icon">🌟</div>
+      <div class="award-title">Guatemalteco Ilustre 2025</div>
+      <div class="award-desc">XX Edición · Seguros Universales · Sep 2025 · Guatemalteca Ilustre Oradora 2025, motivando a la juventud guatemalteca en institutos educativos.</div>
+    </div>
     <div class="award-card">
       <div class="award-icon">🏆</div>
       <div class="award-title">Falling Walls — Female Science Talents 2024</div>
@@ -1052,7 +1225,7 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-header">
-    <span class="section-num">05</span>
+    <span class="section-num">06</span>
     <h2>Skills & Languages</h2>
     <div class="section-line"></div>
   </div>
